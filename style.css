@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+body {
+font-family: "Quicksand", sans-serif;
+}
+
+
+.navbar {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 90px;
+
+z-index: 1000;
+padding: 0 40px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7); 
+
+background-color: #252425;
+color: #8ce2aa;
+
+}
+
+
+.menu {
+cursor: pointer;
+font-size: 3em;
+margin-left: 20px;
+}
+
+/* Esconde o checkbox */
+.toggle-menu {
+    display: none;
+  }
+  
+
+/* Menu com as opções, inicialmente invisível */
+.menu-opcoes {
+    display: flex;           /* Alinha os links lado a lado */
+    gap: 20px;               /* Espaço entre os links */
+    position: absolute;
+    top: 50%;                /* Centraliza verticalmente */
+    right: 20px;             /* Alinha à direita da navbar */
+    transform: translateY(-50%); /* Ajusta para o centro vertical */
+    opacity: 0;              /* Torna invisível inicialmente */
+    pointer-events: none;    /* Não permite clicar enquanto invisível */
+    transition: opacity 0.3s ease;
+}
+
+/* Quando o checkbox for marcado, o menu aparece */
+.toggle-menu:checked ~ .menu-opcoes {
+opacity: 1;              /* Torna o menu visível */
+pointer-events: auto;    /* Permite clicar nos links */
+}
+
+.menu-opcoes a {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+/* Link selecionado */
+.menu-opcoes a.selecionado {
+    text-decoration: underline; /* Deixa o link sublinhado */
+    color: #8ce2aa  
+}
+
+.menu:hover {
+transform: scale(1.2);
+transition: transform 0.4s ease;
+
+}
+
+/* Container principal abaixo da navbar */
+.container {
+  display: flex;
+  margin-top: 90px; /* altura real da navbar */
+  height: calc(100vh - 90px);
+}
+
+
+.setor-foto {
+width: 30%;
+background-color: #191919;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+/* Imagem da foto */
+.foto {
+max-width: 80%;
+border-radius: 50%;
+
+box-shadow: 0 5px 5px #121a14; 
+}
+
+/* Setor de conteúdo (amarelo) */
+.setor-conteudo {
+width: 70%;
+padding: 5vh 5vw;
+display: flex;
+flex-direction: column;
+background-color: #191919;
+color: #e0e0e0;
+}
+
+.titulo {
+height: 30%;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 2em; /* opcional */
+justify-content: flex-start; /* alinha o conteúdo à esquerda */
+align-items: flex-end;         /* alinha verticalmente em baixo */
+padding-left: 30px;          /* espaço da borda esquerda */
+padding-bottom: 5px;
+color: #8ce2aa;
+margin-top: 5px;
+}
+
+
+.textos {
+height: 70%;
+overflow-y: auto; /* rolagem se o texto for grande */
+padding: 20px;
+}
+
+.textos ul {
+list-style: none;          /* remove os bullet points */
+padding: 0;
+margin: 0;
+}
+
+.textos li {
+font-size: 1.2em;
+margin-bottom: 15px;
+line-height: 1.6;
+}
+
+.textos p {
+font-size: 1.2em;
+line-height: 1.8;
+margin-bottom: 20px;
+text-align: justify;          /* texto alinhado dos dois lados, fica mais formal */
+text-indent: 2em;             /* recuo na primeira linha */             
+
+}
+
+
+@media (max-width: 1100px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .setor-foto {
+    padding-top: 8vh;
+    width: 100%;
+    height: auto;
+  }
+
+  .setor-conteudo {
+    width: 100%;
+    height: auto;
+  }
+
+  .titulo {
+
+    height: auto;
+    justify-content: flex-start; /* alinha o conteúdo à esquerda */
+    align-items: flex-start;         /* alinha verticalmente em baixo */
+    color: #8ce2aa;
+    margin-top: 5px;
+    }
+
+  .menu-opcoes {
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 8px;
+    top: 100%;
+    right: 10px;
+    transform: translate(0);
+    width: 150px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.5);
+    background-color: #252425;   
+    position: relative;
+  }
+    
+}
